@@ -1,0 +1,199 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.fondoLP{
+  background-image: url('./imgs/mando.jpg');
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  background-size:cover;
+}
+
+.fondoLP2{
+  background-image: url('./imgs/elmando.jpeg');
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  background-size:cover;
+}
+
+.hh1{
+  font-size: 40px;
+}
+
+.hh2{
+  font-size: 40px;
+  color:white;
+}
+
+.hh3{
+  font-size: 50px;
+  font-weight: 900;
+}
+
+.izquierda{
+  margin: 0px 5px 0px 5px;
+  border: 4px solid lightgreen;
+  border-radius: 15px;
+  display: inline-block;
+  font-weight: bold;
+  padding: 25px;
+  font-size: 20px;
+  background-image: url('./imgs/left.jpg');
+  background-size:cover;
+  width: 40px;
+  height: 40px;
+}
+
+.palabra{
+  margin: 0px 5px 0px 5px;
+  border: 4px solid #B9935A;
+  border-radius: 15px;
+  display: inline-block;
+  font-weight: bold;
+  padding: 9px 15px 9px 15px;
+  font-size: 25px;
+  color: #B9935A;
+  background-color: #3e3e3e;
+}
+
+.palabra-n{
+  margin: 0px 5px 0px 5px;
+  border: 4px solid #B9935A;
+  border-radius: 15px;
+  display: inline-block;
+  font-weight: bold;
+  padding: 9px 15px 9px 15px;
+  font-size: 25px;
+  color: #3e3e3e;
+  background-color: #B9935A;
+}
+
+.derecha{
+  margin: 0px 5px 0px 5px;
+  border: 4px solid lightgreen;
+  border-radius: 15px;
+  display: inline-block;
+  font-weight: bold;
+  padding: 25px;
+  font-size: 20px;
+  width: 25px;
+  height: 25px;
+  background-image: url('./imgs/right.jpg');
+  background-size:cover;
+}
+
+.izquierda{
+  margin: 0px 5px 0px 5px;
+  border: 4px solid lightgreen;
+  border-radius: 15px;
+  display: inline-block;
+  font-weight: bold;
+  padding: 25px;
+  font-size: 20px;
+  width: 25px;
+  height: 25px;
+  background-image: url('./imgs/left.jpg');
+  background-size:cover;
+}
+
+.numbero{
+  margin: 0px 5px 0px 5px;
+  border: 4px solid lightgreen;
+  border-radius: 15px;
+  display:inline-table;
+  font-weight: bold;
+  padding: 9px 15px 9px 15px;
+  font-size: 25px;
+  color: lightgreen;
+}
+
+.duvvv{
+  margin-right: 2%;
+  display: inline-block;
+  justify-content: right;
+  align-items: right;
+  text-align: right;
+  font-size: 20px;
+  color: #B9935A;
+  width: 350px;
+  outline: none;
+}
+
+.duvvv1_5{
+  margin-right: 2%;
+  display: inline-block;
+  justify-content: right;
+  align-items: right;
+  text-align: right;
+  font-size: 20px;
+  width: 350px;
+  outline: none;
+}
+
+.duvvv2{
+  width: 350px;
+  font-size: 20px;
+  font-family: sans-serif;
+  height: 190px;
+  resize: none;
+}
+
+
+.btn{
+  padding: 10px;
+  font-size: 25px;
+  color: #000;
+  border-radius: 10px;
+  border: 5px solid lightgreen;
+  background-color: antiquewhite;
+  
+  :visited{
+    text-decoration:none;
+  }
+  :hover{
+    text-decoration:none;
+    color: #61dafb;
+  }
+}
+
+.fondoError{
+  background-color: rgb(187, 0, 0);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
