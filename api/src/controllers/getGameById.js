@@ -1,6 +1,6 @@
 const axios = require("axios");
 const URLp1 = "https://api.rawg.io/api/games/"
-const URLp2 = "?key=4a8904dc6b544231a6ab84c59cd7128a";
+const URLp2 = "?key=ad2603823410452d8a1c7b7351df447c";
 const { Videogames } = require("../db");
 const { Generos } = require("../db");
 const { Plataformas } = require("../db");

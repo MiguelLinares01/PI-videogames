@@ -96,7 +96,7 @@
 
 .derecha{
   margin: 0px 5px 0px 5px;
-  border: 4px solid lightgreen;
+  border: 4px solid #B9935A;
   border-radius: 15px;
   display: inline-block;
   font-weight: bold;
@@ -110,7 +110,7 @@
 
 .izquierda{
   margin: 0px 5px 0px 5px;
-  border: 4px solid lightgreen;
+  border: 4px solid #B9935A;
   border-radius: 15px;
   display: inline-block;
   font-weight: bold;
@@ -124,13 +124,14 @@
 
 .numbero{
   margin: 0px 5px 0px 5px;
-  border: 4px solid lightgreen;
+  border: 4px solid #B9935A;
   border-radius: 15px;
   display:inline-table;
   font-weight: bold;
   padding: 9px 15px 9px 15px;
   font-size: 25px;
-  color: lightgreen;
+  color: #B9935A;
+  background-color: white;
 }
 
 .duvvv{
@@ -164,14 +165,21 @@
   resize: none;
 }
 
+.buk{
+  background-color:  #3e3e3e;
+  padding: 25px;
+  display: inline-block;
+  border-radius: 15px;
+  border: 4px solid #B9935A;
+}
+
 
 .btn{
   padding: 10px;
   font-size: 25px;
-  color: #000;
   border-radius: 10px;
-  border: 5px solid lightgreen;
-  background-color: antiquewhite;
+  border: 5px solid #B9935A;
+  background-color: #3e3e3e;
   
   :visited{
     text-decoration:none;

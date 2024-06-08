@@ -27,7 +27,7 @@ const postGame = async (req, res) => {
         });
         
         await newGame.addPlataformas(plataformasId, plataformas);
-
+        
         return res.status(200).json(newGame);
     }
     catch(error){

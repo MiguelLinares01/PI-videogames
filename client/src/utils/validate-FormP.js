@@ -1,7 +1,11 @@
 export default function validate(input){
     const errors = {};
+    const carEsp = /[!¡{}@#$%^&*.,<>/\\'\";?¿]/;
 
     if(!input.nombre.length) errors.nombre = "El juego requiere de un nombre";
+    if(input.nombre.length){
+        if(carEsp.test(input.nombre)) errors.nombre = "El nombre del juego no puede andar con carácteres especiales";
+    }
 
     if(!input.descripcion.length) errors.descripcion = "El juego necesita una descripción";
 

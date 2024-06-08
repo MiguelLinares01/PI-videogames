@@ -1,5 +1,5 @@
 const axios = require("axios");
-const URL = 'https://api.rawg.io/api/games?key=4a8904dc6b544231a6ab84c59cd7128a';
+const URL = 'https://api.rawg.io/api/games?key=ad2603823410452d8a1c7b7351df447c';
 const { Videogames } = require("../db");
 const { Generos } = require("../db");
 
@@ -12,7 +12,7 @@ const getGameByName = async (req, res) => {
 
         let URLBeyond = URL;
 
-        while(quince.length<=14 && URLBeyond !== 'https://api.rawg.io/api/games?key=4a8904dc6b544231a6ab84c59cd7128a&page=6'){
+        while(quince.length<=14 && URLBeyond !== 'https://api.rawg.io/api/games?key=ad2603823410452d8a1c7b7351df447c&page=6'){
             const { data } = await axios.get(URLBeyond);
             data.results.map((sus)=>{
                 if(sus.name.toLowerCase().includes(nombre)) quince.push({

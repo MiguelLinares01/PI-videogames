@@ -4,7 +4,6 @@ import {Routes, Route} from 'react-router-dom';
 import LandingP from './components/LandingP.jsx';
 import HomeP from './components/HomeP.jsx';
 import DetailP from './components/DetailP.jsx';
-import PagesP from './components/PagesP.jsx';
 import FormP from './components/FormP.jsx';
 import ErrorP from './components/ErrorP.jsx';
 
@@ -23,10 +22,6 @@ function App(){
               <Route
                 path='/detail/:id'
                 element={<DetailP/>}
-              />
-              <Route
-                path='/pages/:page'
-                element={<PagesP/>}
               />
               <Route
                 path='/newGame'

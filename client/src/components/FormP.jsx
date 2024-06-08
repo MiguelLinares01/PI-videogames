@@ -6,18 +6,18 @@ import validate from '../utils/validate-FormP';
 import validate2 from '../utils/validate-FormP2';
 import validate3 from '../utils/validate-Form3P';
 
+
 export default function DetailP(){
 
     const dispatch = useDispatch();
     const navigate = useNavigate()
+    const [xd, setXd] = useState(false);
+    const carEsp = /[!¡{}@#$%^&*.,<>/\\'\";?¿]/;
 
     useEffect(() => {
         dispatch(generos());
         dispatch(plat());
     }, [])
-
-    const [gen, setGen] = useState(["no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no"]);
-    const [platt, setPlatt] = useState(["no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no"]);
 
     const change = event => {
         const {name, value} = event.target;
@@ -36,50 +36,59 @@ export default function DetailP(){
 
     const change2 = event => {
         const {name, value, checked} = event.target;
-        setGen(prevGen => ({
-            ...prevGen,
-            [name]: checked ? value : "no"
-        }))
+
+        checked ? input.generos[name] = value : input.generos[name] = "no"
+
         setErrors2(
-            validate2({...gen, [name]: checked ? value : "no"})
+            validate2([checked ? value : "no"])
         )
     }
 
     const change3 = event => {
         const {name, value, checked} = event.target;
-        setPlatt(prevGen => ({
-            ...prevGen,
-            [name]: checked ? value : "no"
-        }))
+        
+        checked ? input.plataformas[name] = value : input.plataformas[name] = "no"
+
         setErrors3(
-            validate3({...platt, [name]: checked ? value : "no"})
+            validate3([checked ? value : "no"])
         )
     }
 
+    const bruh = () => {
+        console.log("QUEEEEEEEEEEEEE")
+        setXd(true)
+    }
+    
     const preNewG = () => {
-        setInput({...input, generos:Object.values(gen).filter((la) => la !== "no")});
-        setInput({...input, generos:Object.values(platt).filter((la) => la !== "no")});
+
+        console.log("SIIIIIII")        
         dispatch(new_g(input));
+        console.log("QUE FUE");
         alert("JUEGO CREADO EN LA BASE DE DATOS");
+        console.log("QUE FUE 2");
         navigate(`/home`);
+
     }
     
     const [input, setInput] = useState({
         
         nombre: "\n",
         descripcion: "Escriba aquí su descripción",
-        plataformas: [],
+        plataformas: ["no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no"],
         imagen: "\n",
-        lanzamiento: "\n",
+        lanzamiento: "1953-01-01",
         rating: "1",
-        generos: []
+        generos: ["no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no", "no"]
         
     });
+    console.log(input)
     
     const [errors, setErrors] = useState({});
     const [errors2, setErrors2] = useState({});
     const [errors3, setErrors3] = useState({});
-
+    
+    
+    console.log(JSON.stringify(errors) === "{}", JSON.stringify(errors2) === "{}",  JSON.stringify(errors3) === "{}", input.nombre !== "\n", input.imagen !== "\n", input.descripcion !== "", input.lanzamiento !== "", input.rating >= 1 || input.rating <= 5)
     return(
         <div className='fondoLP2'>
             <br /><br />
@@ -123,7 +132,7 @@ export default function DetailP(){
                     </ul><kk style={{color:"coral", margin:0}}> {errors3.plataformas ? errors3.plataformas : null} {errors3.plataformas ? (<div><br /><br /></div>) : null}</kk>
                 </div> 
                 <input type="text" key='imagen' id='imagen' name='imagen' value={input.imagen} onChange={change} className='duvvv1_5' style={{fontSize:'20px'}}/> <kk style={{color:"coral", margin:0}}> {errors.imagen ? errors.imagen : null} {errors.imagen ? (<div><br /></div>) : null}</kk>
-                <input type="text" key='lanzamiento' id='lanzamiento' name='lanzamiento' value={input.lanzamiento} onChange={change} className='duvvv1_5' style={{fontSize:'20px'}}/> <kk style={{color:"coral", margin:0}}> {errors.lanzamiento ? errors.lanzamiento : null} {errors.lanzamiento ? (<br />) : null}</kk> 
+                <input type="date" key='lanzamiento' id='lanzamiento' name='lanzamiento' value={input.lanzamiento} onChange={change} className='duvvv1_5' style={{fontSize:'20px'}} min='1953-01-01' max='2024-01-01'/> <kk style={{color:"coral", margin:0}}> {errors.lanzamiento ? errors.lanzamiento : null} {errors.lanzamiento ? (<br />) : null}</kk> 
                 <input type="number" key='rating' id='rating' name='rating' value={input.rating} onChange={change} min="1" max="5" className='duvvv1_5' style={{fontSize:'20px'}}/> <kk style={{color:"coral", margin:0}}> {errors.rating ? errors.rating : null} {errors.rating ? (<div><br /></div>) : null}</kk><br />
                 <div>
                     <ul>
@@ -134,10 +143,24 @@ export default function DetailP(){
                         </li>
                     ))}
                     </ul><kk style={{color:"coral", margin:0}}> {errors2.generos ? errors2.generos : null} {errors2.generos ? (<div><br /> </div>) : null}</kk>
-                </div>                
-            </div><br /><br /><br /><br />
-            {JSON.stringify(errors) === "{}" && JSON.stringify(errors2) === "{}" && JSON.stringify(errors3) === "{}" && input.nombre !== "\n" && input.imagen !== "\n" && input.descripcion !== "" && input.lanzamiento !== "\n" && Object.values(gen).filter((la) => la !== "no").length !== 0 && Object.values(platt).filter((la) => la !== "no").length !== 0 ? <button className='palabra' type='submit' onClick={preNewG} style={{cursor:"pointer"}}>Juego listo!!!</button> : <button disabled className='palabra'>Juego listo!!!</button>}
+                </div>
+            </div><br />
+            {xd && (input.nombre==="" || input.nombre==="\n" || input.imagen==="" || input.imagen==="\n" || input.descripcion==="" || input.lanzamiento==="" || input.lanzamiento==="\n" || input.rating < 1 || input.rating > 5 || input.plataformas.filter((lal) => lal !== "no").length === 0 || input.generos.filter((lal) => lal !== "no").length === 0) ?
+                <div style={{backgroundColor:'white', border:'solid 4px #3e3e3e', borderRadius:'15px', padding:'25px', display:'inline-block',  color:"coral", margin:0, fontSize:'22px'}}>
+                    {input.nombre==="" || input.nombre==="\n" ? "Se require de un nombre" : null} {input.nombre==="" || input.nombre==="\n" ? <br /> : null}
+                    {carEsp.test(input.nombre)===true ? "Se require que el juego no tenga caracteres especiales ([!¡{}@#$%^&*.,<>/\\'\";?¿])" : null} {carEsp.test(input.nombre)===true ? <br /> : null}
+                    {input.imagen==="" || input.imagen==="\n" ? "Se require de una imagen" : null} {input.imagen==="" || input.imagen==="\n" ?  <br /> : null}
+                    {input.descripcion==="" ? "Se require de una descripcion" : null} {input.descripcion==="" ? <br /> : null}
+                    {input.lanzamiento==="" || input.lanzamiento==="\n" ? "Se require de un lanzamiento" : null} {input.lanzamiento==="" || input.lanzamiento==="" ? <br /> : null}
+                    {input.rating < 1 || input.rating > 5 ? "Se require de un rating mayor a 1 y menor que 5" : null} {input.rating < 1 || input.rating > 5 ? <br /> : null}
+                    {input.plataformas.filter((lal) => lal !== "no").length === 0 ? "Se require de una plataforma para el juego" : null} {input.plataformas.filter((lal) => lal !== "no").length === 0  ? <br /> : null}
+                    {input.generos.filter((lal) => lal !== "no").length === 0 ? "Se require de un género para el juego" : null} {input.generos.filter((lal) => lal !== "no").length === 0  ? <br /> : null}
+                </div>
+            : null} <br /><br />
+            {JSON.stringify(errors) === "{}" && JSON.stringify(errors2) === "{}" && JSON.stringify(errors3) === "{}" && input.nombre !== "\n" && input.imagen !== "\n" && input.descripcion !== "" && input.lanzamiento !== "" && input.rating >= 1 && input.rating <= 5 && input.plataformas.filter((lal) => lal !== "no").length !== 0 && input.generos.filter((lal) => lal !== "no").length !== 0 ? <button className='palabra' type='submit' onClick={preNewG} style={{cursor:"pointer"}}>Juego listo!!!</button> : null}
             </form>
+            {JSON.stringify(errors) === "{}" && JSON.stringify(errors2) === "{}" && JSON.stringify(errors3) === "{}" && input.nombre !== "\n" && input.imagen !== "\n" && input.descripcion !== "" && input.lanzamiento !== "" && input.rating >= 1 && input.rating <= 5 && input.plataformas.filter((lal) => lal !== "no").length !== 0 && input.generos.filter((lal) => lal !== "no").length !== 0 ? null :<button type='text' onClick={bruh} style={{cursor:"pointer"}} className='palabra'>Juego listo!!!</button>}
+            <br /><br />
         </div>
     )
 }

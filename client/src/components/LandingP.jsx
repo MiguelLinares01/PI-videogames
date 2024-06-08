@@ -13,7 +13,7 @@ export default function LandingP(){
                 ESPERO LO DISFRUTES VIÉNDOLO ASÍ COMO YO DISFRUTÉ HACIÉNDOLO🥳
                 <br /><br /><br /><br />
                 <button className='btn'>
-                    <NavLink to="/home" style={{textDecoration:"none", color:'lightgreen', fontWeight:'bold'}}>
+                    <NavLink to="/home" style={{textDecoration:"none", color:'#B9935A', fontWeight:'bold'}}>
                         Ir a la página hogar
                     </NavLink>
                 </button>

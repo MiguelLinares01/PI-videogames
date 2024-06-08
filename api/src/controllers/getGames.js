@@ -1,5 +1,5 @@
 const axios = require("axios");
-var URL = `https://api.rawg.io/api/games?key=4a8904dc6b544231a6ab84c59cd7128a`;
+var URL = `https://api.rawg.io/api/games?key=ad2603823410452d8a1c7b7351df447c`;
 const {Videogames} = require("../db");
 const {Generos} = require("../db");
 
@@ -9,7 +9,7 @@ const getGames = async (req, res) => {
         let allG = [];
         let URLBeyond = URL;
 
-        while(URLBeyond !== `https://api.rawg.io/api/games?key=4a8904dc6b544231a6ab84c59cd7128a&page=6`){
+        while(URLBeyond !== `https://api.rawg.io/api/games?key=ad2603823410452d8a1c7b7351df447c&page=6`){
             const { data } = await axios.get(URLBeyond);
             allG = [...allG, ...data.results];
             URLBeyond = data.next;

@@ -21,7 +21,7 @@ export default function DetailP(){
     const inicio = (id.page-1) * perPage;
     const final = inicio + perPage;
     
-    const idGames =games.slice(inicio, final);
+    const idGames = games.slice(inicio, final);
 
     const sum1 = () => {
         id.page = Number(id.page) + 1;
